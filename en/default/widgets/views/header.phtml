@@ -1,0 +1,116 @@
+<div id="appHeader">
+    <div class="topnav" id="myTopnav">
+        <a href="tel:01712664171">
+            <i class="fas fa-phone"></i>
+            01712-664171
+        </a>
+
+        <a href="mailto:skfaruk78@yahoo.com">
+            <i class="fas fa-envelope"></i>
+            skfaruk78@yahoo.com
+        </a>
+
+        <div class="float-right">
+            <div class="topnav">
+                <?php if (Session::get('auth')): ?>
+                    <div class="nav-dropdown">
+                        <button class="nav-dropbtn">
+                            <i class="far fa-user"></i>
+                            &nbsp;
+                            <?php if (empty(Session::get('f_name'))) {
+                                echo ucfirst(preg_replace('/' . AppUsernamePrefix .
+                                    '/is', '$1', Session::get('username')));
+                            } else {
+                                echo Session::get('f_name');
+                            } ?>
+                            &nbsp;
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="nav-dropdown-content">
+                            <!--a href="<?php echo BaseURL; ?>user">
+                                <i class="fas fa-home"></i> My home
+                            </a-->
+                            <?php if(Session::get('level') === 2): ?>
+                            <a href="<?php echo BaseURL; ?>appmanager">
+                                <i class="fas fa-cog"></i> Setting
+                            </a>
+                            <?php endif; ?>
+                            <a href="<?php echo BaseURL; ?>office">
+                                <i class="fas fa-cog"></i> Office
+                            </a>
+
+                            <a href="<?php echo BaseURL; ?>user/logout">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                        </div>
+                    </div>
+                <?php else: ?>
+                    <a href="<?php echo BaseURL; ?>user/login">
+                        <i class="fas fa-sign-in-alt"></i> Log In
+                    </a>
+                <?php endif; ?>
+            </div>
+        </div>
+
+        <a href="javascript:void(0);" class="icon" onclick="openTopNAV()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+
+    <?php
+    if (isset($siteInfo) && sizeof($siteInfo) > 0):
+        foreach ($siteInfo as $si):
+            $var = $si['icon_dir'] . $si['favicon']; ?>
+            <header>
+                <div class="row">
+                    <a href="<?php echo $si['default_home']; ?>" class="clearfix">
+                        <div id="topbar" class="topbar">
+                            <div class="logo">
+                                <img src="<?php if (file_exists($var)) {
+                                    echo $var;
+                                } else {
+                                    echo $si['icon_dir'] . "logo.png";
+                                } ?>"
+                                     class="logo" alt="<?php echo $si['name']; ?>">
+                            </div>
+
+                            <div class="titlebar">&nbsp;<?php echo $si['name']; ?></div>
+                            <div class="subTitle float-right">
+                                <?php if (Session::get('auth')): ?>
+                                    Branch: <?php if (!empty(Session::get('BranchName'))) echo Session::get('BranchName'); ?>
+                                    <br/>
+                                <?php endif; ?>
+                                <small style="font-size:14px;"><span id="ct"></span></small>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+            </header>
+        <?php endforeach;
+    endif;
+    ?>
+
+    <?php if (isset($menu) && sizeof($menu) > 0): ?>
+        <div class="topnav" id="myTopnav">
+            <?php foreach ($menu as $item):
+                $class = '';
+                if (View::getViewId() && $item['id'] === View::getViewId()) {
+                    $class = 'active';
+                } ?>
+                <a href="<?php echo BaseURL . "products/view/" . $item['url'] ?>" class="<?php echo $class ?>"
+                   style="border-right-style: solid;">
+                    <i class="<?php echo $item['icon'] ?>"></i>
+                    <?php echo $item['title'] ?>
+                </a>
+            <?php endforeach; ?>
+
+            <a href="javascript:void(0);" class="icon" onclick="openTopNAV()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+    <?php endif; ?>
+
+</div>

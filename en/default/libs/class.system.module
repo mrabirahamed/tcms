@@ -1,0 +1,720 @@
+<?php
+
+/*
+ * + ---------------------------------------------------------- +
+ * |  Software:	System - class PHP system register                    |
+ * |   Version:	2.1.0                                                                         |
+ * |  Licence:	Library file distributor                                             |
+ * |   Author:	Mr Abir Ahamed                                                      |
+ * | Site Web:	http://mishu.byethost3.com                                  |
+ * + ---------------------------------------------------------- +
+ *
+ */
+
+class System
+{
+
+    public static $activate;
+    public static $StepTitle;
+    public static $Message;
+    public static $SetupStatus;
+    private static $configDir;
+    private static $databaseDir;
+    private static $setupFile;
+    private static $databaseFile;
+    private static $db;
+    private static $errorMessage;
+    private static $successMessage;
+    private static $Step;
+    private static $setupDir;
+    private static $appLogoDIR;
+
+    public static function activate()
+    {
+        self::$configDir = AppRequiedDataDIR . 'config' . DS;
+        self::$databaseDir = AppRequiedDataDIR . 'db' . DS;
+        self::$setupFile = self::$configDir . Hash::passwordENCRYPT($_SERVER['HTTP_HOST']) . '.msd';
+        self::$databaseFile = '';
+        self::$SetupStatus = self::SetupStatus();
+        self::$errorMessage = '';
+        self::$successMessage = '';
+        self::$StepTitle = '';
+        self::$Message = '';
+        self::$db = '';
+        self::$Step = '';
+        self::$setupDir = self::setupDir('ADDRESS');
+        self::$appLogoDIR = self::setupDir('ADDRESS') . PublicMediaLogoImagesFolder;
+        self::Step();
+
+        if (!empty(self::$StepTitle && self::$Message)) {
+            self::AppErrorSET(self::$StepTitle, self::$Message);
+        }
+    }
+
+    public static function GetConfData($argument)
+    {
+        // $data    = json_decode(Hash::passwordDECRYPT(file_get_contents(self::$setupFile)));
+        $data = json_decode(file_get_contents(self::$setupFile));
+        if (count($data) > 0) {
+            // DbHOST,DbPORT,DbUSER,DbPASS,DbNAME,DbCHAR,DbPREFIX //
+            switch ($argument) {
+                case "db_host":
+                    return Hash::decrypt($data->db->host);
+                    break;
+                case "db_port":
+                    return Hash::decrypt($data->db->port);
+                    break;
+                case "db_user":
+                    return Hash::decrypt($data->db->user);
+                    break;
+                case "db_pass":
+                    return Hash::decrypt($data->db->pass);
+                    break;
+                case "db_name":
+                    return Hash::decrypt($data->db->name);
+                    break;
+                case "db_char":
+                    return Hash::decrypt($data->db->char);
+                    break;
+                case "db_prefix":
+                    return Hash::decrypt($data->db->prefix);
+                    break;
+                default:
+                    self::AppErrorSET("Error:", "Configuration data not found.");
+                    break;
+            }
+        }
+
+        return self::AppErrorSET("Error:", "Configuration file empty.");
+    }
+
+    public static function SetupStatus()
+    {
+        if (is_dir(self::$configDir)) {
+            if (file_exists(self::$setupFile)) {
+                if (self::db()) {
+                    $UsersTable = self::$db->query("SHOW TABLES FROM `" . self::GetConfData('db_name') . "` LIKE '%" .
+                        self::GetConfData('db_prefix') . "users%'");
+                    $status = $UsersTable->fetch(PDO::FETCH_ASSOC);
+                    if ($status) {
+                        $websiteTable = self::$db->query("SHOW TABLES FROM `" . self::GetConfData('db_name') . "` LIKE '%" .
+                            self::GetConfData('db_prefix') . WebAppConfigTable . "%'");
+                        $status2 = $websiteTable->fetch(PDO::FETCH_ASSOC);
+                        if ($status2) {
+                            return "ok";
+                        }
+                        return "website_info_not_exist";
+                    }
+                    return "user_info_not_exist";
+                }
+            }
+            return "config_file_not_exist";
+        }
+        return "config_dir_not_exist";
+    }
+
+    public static function databaseFile($file)
+    {
+        return self::$databaseFile = self::$databaseDir . $file . ".sql";
+    }
+
+    public static function db()
+    {
+        return self::$db = new Database(
+            System::GetConfData("db_host"),
+            System::GetConfData("db_name"),
+            System::GetConfData("db_user"),
+            System::GetConfData("db_pass"),
+            System::GetConfData("db_char"));
+    }
+
+    public static function setupUI()
+    {
+       // print_r(Configuration::checkMyFileList(ROOT));
+        self::setupValidation();
+        self::setupHeaderUI();
+
+        echo "
+        <body>
+        <div class=\"app-setup-box\">
+        <div class=\"box-panel box-panel-primary\">
+                    <div class= \"box-panel-header\">
+                        <img alt='logo' src=\"" . self::$setupDir . "favicon.ico\" width=\"25px\" height=\"25px\" class=\"logo-xs\" title=\"logo\"/>" .
+            self::$StepTitle . "
+                    </div>
+    
+                    <div class=\"box-panel-body\">
+                        ";
+
+        if (!empty(self::$errorMessage)) {
+            echo "<div class=\"box-message box-danger box-shadow-light\"><b class=\"text-danger\">Error:</b> " . self::$errorMessage . "</div>";
+        }
+
+        if (!empty(self::$successMessage)) {
+            echo "<div class=\"box-message box-success box-shadow-light\"><b class=\"text-success\">Message:</b> " . self::$successMessage . "</div>";
+        }
+
+        if (!empty(self::$Message)) {
+            echo self::$Message;
+        } else {
+            switch (self::$Step) {
+                case "account":
+                    self::accountSetupUI();
+                    break;
+                case "website":
+                    self::websiteSetupUI();
+                    break;
+                case "database":
+                    self::databaseSetupUI();
+                    break;
+                default:
+                    self::AppErrorSET("Error", "The application is unable to start correctly.");
+                    break;
+            }
+        }
+
+        echo "</div>
+      </div>       
+    </div>
+    
+        <style>
+            .app-setup-box {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                box-sizing: border-box;
+                border-radius: 5px;
+                -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+                -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            }
+    </style>
+            
+            <script src = '" . self::$setupDir . "public/js/mishusoft/mishusoft.js' type = 'text/javascript'></script>
+        </body>
+        </html>";
+        exit;
+    }
+
+    public static function setupHeaderUI()
+    {
+        echo "<!DOCTYPE html>
+        <html lang='EN'>
+        <head>
+            <meta charset=\"UTF-8\">
+            <meta name=\"viewport\"
+              content=\"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0\">
+            <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">
+            <title id= \"pageTitle\"> " . self::$StepTitle . " </title>
+            
+            <!-- favicon image files include here -->            
+            <link rel=\"apple-touch-icon\" sizes=\"57x57\" href= \"" . self::$appLogoDIR . "apple-icon-57x57.png\">
+            <link rel=\"apple-touch-icon\" sizes=\"60x60\" href= \"" . self::$appLogoDIR . "apple-icon-60x60.png\">
+            <link rel=\"apple-touch-icon\" sizes=\"72x72\" href= \"" . self::$appLogoDIR . "apple-icon-72x72.png\">
+            <link rel=\"apple-touch-icon\" sizes=\"76x76\" href= \"" . self::$appLogoDIR . "apple-icon-76x76.png\">
+            <link rel=\"apple-touch-icon\" sizes=\"114x114\" href= \"" . self::$appLogoDIR . "apple-icon-114x114.png\">
+            <link rel=\"apple-touch-icon\" sizes=\"120x120\" href= \"" . self::$appLogoDIR . "apple-icon-120x120.png\">
+            <link rel=\"apple-touch-icon\" sizes=\"144x144\" href= \"" . self::$appLogoDIR . "apple-icon-144x144.png\">
+            <link rel=\"apple-touch-icon\" sizes=\"152x152\" href= \"" . self::$appLogoDIR . "apple-icon-152x152.png\">
+            <link rel=\"apple-touch-icon\" sizes=\"180x180\" href= \"" . self::$appLogoDIR . "apple-icon-180x180.png\">
+            <link rel=\"icon\" type=\"image/png\" sizes=\"192x192\"  href= \"" . self::$appLogoDIR . "android-icon-192x192.png\">
+            <link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href= \"" . self::$appLogoDIR . "favicon-32x32.png\">
+            <link rel=\"icon\" type=\"image/png\" sizes=\"96x96\" href= \"" . self::$appLogoDIR . "favicon-96x96.png\">
+            <link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href= \"" . self::$appLogoDIR . "favicon-16x16.png\">
+            <link rel=\"manifest\" href= \"" . self::$appLogoDIR . "manifest.json\">
+            <meta name=\"msapplication-TileColor\" content=\"#ffffff\">
+            <meta name=\"msapplication-TileImage\" content= \"" . self::$appLogoDIR . "ms-icon-144x144.png\">
+            <meta name=\"theme-color\" content=\"#ffffff\">
+
+            <!-- Stylesheet source files include here -->
+            <link href= \"" . self::$setupDir . "public/css/mishusoft.css\" rel= \"stylesheet\" type= \"text/css\"/>
+            <link href= \"" . self::$setupDir . "public/css/all.css\" rel= \"stylesheet\" type= \"text/css\"/>
+
+            <!-- Javascript source files include here -->
+            <script src = \"" . self::$setupDir . "public/js/main.js\" type = \"text/javascript\"></script>
+            <script src = \"" . self::$setupDir . "public/js/jquery/jquery.min.js\" type = \"text/javascript\"></script>
+            <script src = \"" . self::$setupDir . "public/js/plugin/jquery.validate.js\" type = \"text/javascript\"></script>
+        </head>";
+    }
+
+    public static function AppErrorSET($title, $message)
+    {
+        if (!empty(isset($title))) {
+            self::$StepTitle = $title;
+        }
+
+        if (!empty(isset($message))) {
+            self::$Message = $message;
+        }
+
+        return self::$StepTitle && self::$Message;
+    }
+
+    private static function getText($value)
+    {
+        if (isset($_POST[$value]) && !empty($_POST[$value])) {
+            $_POST[$value] = htmlspecialchars($_POST[$value], ENT_QUOTES);
+            return $_POST[$value];
+        }
+        return '';
+    }
+
+    private static function setupDir($type)
+    {
+        if (HomeFOLDER === '/') {
+            $dir = HomeFOLDER;
+        } elseif (HomeFOLDER === "\\") {
+            $dir = '/';
+        } else {
+            $dir = HomeFOLDER . '/';
+        }
+
+        $ssl = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on');
+        $sp = strtolower($_SERVER['SERVER_PROTOCOL']);
+        $protocol = substr($sp, 0, strpos($sp, '/')) . (($ssl) ? 's' : '');
+        $port = $_SERVER['SERVER_PORT'];
+        $port = ((!$ssl && $port == '80') || ($ssl && $port == '443')) ? '' : ':' . $port;
+        $host = (isset($_SERVER['HTTP_X_FORWARDED_HOST'])) ? $_SERVER['HTTP_X_FORWARDED_HOST'] : (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : null);
+
+        if (isset($type)) {
+            if ($type === 'ADDRESS') {
+                $host = isset($host) ? $host : $_SERVER['SERVER_NAME'] . $port;
+                return $protocol . '://' . $host . $dir;
+            } elseif ($type === 'IP') {
+                $host = isset($host) ? $host : $_SERVER['SERVER_ADDR'] . $port;
+                return $protocol . '://' . $host . $dir;
+            }
+        }
+        return self::AppErrorSET('Error:', 'No Address Keyword Found.');
+    }
+
+    private static function databaseSetupUI()
+    {
+        echo "<form method='post'>
+            <input type='hidden' value='1' name='database'>
+            <input type='hidden' value='3306' name='db_port'>
+            <fieldset class='box-shadow-light'>
+            <legend class='box-shadow-light'>  Database </legend>
+                  <div class='row'>
+                    <table class='table table-condensed'>
+                        <tr>
+                            <td class='col-md-4 col-sm-4 col-xs-4 col-xs-plus-4'>
+                                <label for='db_host'>Host:</label>
+                            </td>
+                            <td class='col-md-8 col-sm-8 col-xs-8 col-xs-plus-8'>
+                                <input type='text' name='db_host' class='input-box-bottom-border-only' 
+                                    id='db_host' placeholder='Database host' required>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td class='col-md-4 col-sm-4 col-xs-4 col-xs-plus-4'>
+                                <label for='db_user'>Username:</label>
+                            </td>
+                            <td class='col-md-8 col-sm-8 col-xs-8 col-xs-plus-8'>
+                                <input type='text' name='db_user' class='input-box-bottom-border-only' 
+                                    id='db_user' placeholder='Username' required>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td class='col-md-4 col-sm-4 col-xs-4 col-xs-plus-4'>
+                                <label for='db_user_pass'>Password:</label>
+                            </td>
+                            <td class='col-md-8 col-sm-8 col-xs-8 col-xs-plus-8'>
+                                <input type='password' name='db_user_pass' class='input-box-bottom-border-only' 
+                                    id='db_user_pass' placeholder='Password' required></td>
+                        </tr>
+                        
+                        <tr>
+                            <td class='col-md-4 col-sm-4 col-xs-4 col-xs-plus-4'>
+                                <label for='db_name'>Database:</label>
+                            </td>
+                            <td class='col-md-8 col-sm-8 col-xs-8 col-xs-plus-8'>
+                                <input type='text' name='db_name' value='" . strtolower(DefaultAppName) . "' 
+                                    class='input-box-bottom-border-only' id='db_name' placeholder='Database.' 
+                                    required>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td class='col-md-4 col-sm-4 col-xs-4 col-xs-plus-4'>
+                                <label for='db_char'> Charset:</label>
+                            </td>
+                            <td class='col-md-8 col-sm-8 col-xs-8 col-xs-plus-8'>
+                                <input type='text' name='db_char' class='input-box-bottom-border-only' 
+                                    id='db_char' value='" . DefaultDataCharSet . "'  placeholder='Charset.'
+                                    required>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td class='col-md-4 col-sm-4 col-xs-4 col-xs-plus-4'>
+                                <label for='db_prefix'>Table name prefix:</label>
+                            </td>
+                            <td class='col-md-8 col-sm-8 col-xs-8 col-xs-plus-8'>
+                                <input type='text' name='db_prefix' class='input-box-bottom-border-only' 
+                                    id='db_prefix'  value='" . DefaultDataTablePrefix . "' placeholder='Prefix.'>
+                            </td>
+                        </tr>					  
+                    </table>
+      
+                      <div class='float-right text-align-right'>
+                        <button type='submit' class='button button-primary'>Next</button>
+                      </div>
+                </div>
+						</fieldset>
+				</form>";
+    }
+
+    private static function accountSetupUI()
+    {
+        echo "<form method='post'>
+                    <input type='hidden' value='1' name='account'>
+                    <fieldset class='box-shadow-light'>
+                        <legend class='box-shadow-light'> Account</legend>
+                        <div class='row'>
+                            <table class='table table-condensed'>
+                                <tr>
+                                    <td class='col-md-4 col-sm-4 col-xs-4 col-xs-plus-4'>
+                                        <label for='username'>Username:</label>
+                                    </td>
+                                    <td class='col-md-8 col-sm-8 col-xs-8 col-xs-plus-8'>
+                                        <input type='text' name='username' id='username' class='input-box-bottom-border-only' 
+                                            placeholder='Username' required/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class='col-md-4 col-sm-4 col-xs-4 col-xs-plus-4'>
+                                        <label for='admin_email'>Email:</label>
+                                    </td>
+                                    <td class='col-md-8 col-sm-8 col-xs-8 col-xs-plus-8'>
+                                        <input type='email' name='admin_email' id='admin_email' class='input-box-bottom-border-only'
+                                            placeholder='Email address' required/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class='col-md-4 col-sm-4 col-xs-4 col-xs-plus-4'>
+                                        <label for='admin_pass'>Password:</label>
+                                    </td>
+                                    <td class='col-md-8 col-sm-8 col-xs-8 col-xs-plus-8'>
+                                        <input type='password' name='admin_pass' id='admin_pass' class='input-box-bottom-border-only'
+                                            placeholder='Password' required/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class='col-md-4 col-sm-4 col-xs-4 col-xs-plus-4'>
+                                        <label for='admin_con_pass'>Confirm password:</label>
+                                    </td>
+                                    <td class='col-md-8 col-sm-8 col-xs-8 col-xs-plus-8'>
+                                        <input type='password' name='admin_con_pass' id='admin_con_pass' class='input-box-bottom-border-only'
+                                            placeholder='Confirm password' required/>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class='float-right text-align-right'>
+                                <button type='submit' class='button button-primary'>Next</button>
+                            </div>
+                        </div>
+                   </fieldset>
+                </form>";
+    }
+
+    private static function websiteSetupUI()
+    {
+        echo "<form method='post'>
+                    <input type='hidden' value='1' name='website'>
+                    <fieldset class='box-shadow-light'>
+                        <legend class='box-shadow-light'> Website</legend>
+                        <div class='row'>
+                            <table class='table table-condensed'>
+                                <tr>
+                                    <td class='col-md-4 col-sm-4 col-xs-4 col-xs-plus-4'>
+                                        <label for='site_name'>New name:</label>
+                                    </td>
+                                    <td class='col-md-8 col-sm-8 col-xs-8 col-xs-plus-8'>
+                                        <input id='site_name' type='text' name='site_name' class='input-box-bottom-border-only' placeholder='New name'>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class='col-md-4 col-sm-4 col-xs-4 col-xs-plus-4'>
+                                        <label for='site_description'>Description:</label>
+                                    </td>
+                                    <td class='col-md-8 col-sm-8 col-xs-8 col-xs-plus-8'>
+                                        <input id=' site_description' type='text' name='site_description' class='input-box-bottom-border-only' value='" . DefaultAppDescription . "' placeholder='Description'>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class='col-md-4 col-sm-4 col-xs-4 col-xs-plus-4'>
+                                        <label for='site_company'>Company:</label>
+                                    </td>
+                                    <td class='col-md-8 col-sm-8 col-xs-8 col-xs-plus-8'>
+                                        <input type='text' name='site_company' class='input-box-bottom-border-only'
+                                            id='site_company' value='" . DefaultAppCompanyName . "' placeholder='Company' readonly>
+                                    </td>
+                                </tr>
+                            </table>                        
+                            <div class='float-right text-align-right'>
+                                <button type='submit' class='button button-primary'>Finish</button>
+                            </div>
+                        </div>
+                   </fieldset>
+                </form>";
+    }
+
+    private static function configure($db_host, $db_port, $db_user, $db_pass, $db_name, $db_char, $db_tbl_prefix)
+    {
+        //$data = '{"db"{"host": "' . $db_host . '", "port": "' . $db_port . '", "user": "' . $db_user . '", "pass": "' . $db_pass . '", "name": "' . $db_name . '", "char": "' . $db_char . '", "prefix": "' . $db_prefix . '"}}';
+
+        $data = json_encode(array(
+            'server' => array(
+                'name' => '' . $_SERVER['SERVER_NAME'] . '',
+                'ip' => '' . $_SERVER['SERVER_ADDR'] . '',
+                'port' => '' . $_SERVER['SERVER_PORT'] . '',
+                'gatewayInterface' => '' . $_SERVER['GATEWAY_INTERFACE'] . '',
+                'host' => '' . $_SERVER['HTTP_HOST'] . '',
+                'software' => '' . $_SERVER['SERVER_SOFTWARE'] . '',),
+            'client' => array(
+                'deviceType' => 'Mobile',
+                'deviceNane' => 'Symphoney Xplorer W31',
+                'deviceOsType' => 'Linux',
+                'deviceOsName' => 'Android 4.2.2',
+                'browser' => 'Opera Mini',
+                'requestedWith' =>
+                    '' . $_SERVER['HTTP_X_REQUESTED_WITH'] . '',
+                'wapProfile' =>
+                    '' . $_SERVER['HTTP_X_WAP_PROFILE'] . ''
+            ),
+            'db' => array('host' => $db_host, 'port' => $db_port, 'user' => $db_user, 'pass' => $db_pass, 'name' => $db_name, 'char' => $db_char, 'prefix' => $db_tbl_prefix),
+            'account' => array('1' => '1')));
+
+        if (!is_dir(self::$configDir)) {
+            $CreateNewDir = mkdir(self::$configDir, 0777, true);
+            if ($CreateNewDir) {
+                if (!file_exists(self::$setupFile)) {
+                    $file = fopen(self::$setupFile, 'wb');
+                    if ($file) {
+                        //fwrite($file, Hash::passwordENCRYPT($data));
+                        fwrite($file, $data);
+                        fclose($file);
+                    } else {
+                        self::$errorMessage = 'Permission denied. Application configuration file could not be created.';
+                    }
+                } else {
+                    self::$errorMessage = 'Application configuration file not found.';
+                }
+            } else {
+                self::$errorMessage = 'Permission denied. Application configuration directory could not be created.';
+            }
+        } else {
+            self::$errorMessage = 'Application configuration directory not found.';
+        }
+    }
+
+    private static function setupValidation()
+    {
+        if (self::getText('database')) {
+            if (empty(self::getText('db_host') || self::getText('db_host') === '')) {
+                self::$errorMessage = 'Please fill out database host name field.';
+            } elseif (empty(self::getText('db_user')) || self::getText('db_user') === ' ') {
+                self::$errorMessage = 'Please fill out database\'s active username field.';
+            } /*elseif (empty(self::getText('db_user_pass')) || self::getText('db_user_pass') === ' ') {
+                self::$errorMessage = 'Please fill out database\'s user password field.';
+            } */ elseif (empty(self::getText('db_name')) || self::getText('db_name') === ' ') {
+                self::$errorMessage = 'Please fill out database\'s name field.';
+            } elseif (empty(self::getText('db_char')) || self::getText('db_char') === ' ') {
+                self::$errorMessage = 'Please fill out database\'s data set character field.';
+            } elseif (empty(self::getText('db_prefix')) || self::getText('db_prefix') === ' ') {
+                self::$errorMessage = 'Please fill out database\'s table prefix field.';
+            } else {
+                try {
+                    $con = mysqli_connect(self::getText('db_host'), self::getText('db_user'), self::getText('db_user_pass'));
+                    if (!$con) {
+                        self::$errorMessage = 'Unable to connect with DB. Installer got' . mysqli_error($con);
+                    }
+                    if (!mysqli_select_db($con, self::getText('db_name'))) {
+                        self::$errorMessage = 'Unable to select ' . self::getText('db_name') . '. Installer got ' . mysqli_error($con);
+                    } else {
+                        $configure = self::configure(Hash::encrypt(self::getText('db_host')), Hash::encrypt(self::getText('db_port')), Hash::encrypt(self::getText('db_user')),
+                            Hash::encrypt(self::getText('db_user_pass')), Hash::encrypt(self::getText('db_name')),
+                            Hash::encrypt(self::getText('db_char')), Hash::encrypt(self::getText('db_prefix') . '_'));
+                        if ($configure) {
+                            self::$successMessage = 'You have been configured database successfully.';
+                        }
+                        header('location:' . self::$setupDir);
+                    }
+                } catch (Exception $e) {
+                    self::$errorMessage = $e->getMessage();
+                }
+            }
+
+        } elseif (self::getText("account")) {
+            if (empty(self::getText('username')) || self::getText('username') === ' ') {
+                self::$errorMessage = 'You must fill up with admin\'s username.';
+            } elseif (empty(self::getText('admin_email')) || self::getText('admin_email') === ' ') {
+                self::$errorMessage = 'You must fill up with admin\'s email address.';
+            } elseif (empty(self::getText('admin_pass')) || self::getText('admin_pass') === ' ') {
+                self::$errorMessage = 'You must fill up with admin\'s password.';
+            } elseif (empty(self::getText('admin_con_pass')) || self::getText('admin_con_pass') === ' ') {
+                self::$errorMessage = 'You must fill up with admin\'s confirm password.';
+            } elseif (self::getText('admin_pass') !== self::getText('admin_con_pass')) {
+                self::$errorMessage = 'Your password did not match.';
+            } else {
+                try {
+                    self::DropPreviousTables(self::GetConfData('db_name'));
+                    self::SetupAppRequiredTables(self::databaseFile('account'), self::GetConfData('db_prefix'));
+                    self::ConfigWebUserQuery(
+                        SupportEmailAddress, Hash::passwordENCRYPT(OperatingSystemUserPassword), OperatingSystemUser,
+                        'active', '1', '1', DefaultDateOfBirth, 'male'
+                    );
+                    self::ConfigWebUserQuery(
+                        self::getText('admin_email'), Hash::passwordENCRYPT(self::getText('admin_pass')),
+                        AppUsernamePrefix . self::getText('username'), 'active', '2', '1',
+                        Date("d/m/Y"), 'male'
+                    );
+                    header('location:' . self::$setupDir);
+
+                } catch (Exception $e) {
+                    self::$errorMessage = $e->getMessage();
+                }
+            }
+        } elseif (self::getText('website')) {
+            if (empty(self::getText('site_name')) || self::getText('site_name') === ' ') {
+                self::$errorMessage = 'Please fill out website name field.';
+            } else {
+                try {
+                    $app_name = self::getText('site_name');
+                    $app_description = self::getText('site_description');
+                    $app_company = self::getText('site_company');
+                    $doc_root = str_replace('\\', '/', ROOT);
+                    $http_host_name = $_SERVER['SERVER_NAME'];
+                    $http_host_add = self::$setupDir;
+                    $http_host_ip = self::setupDir('IP');
+                    $default_home = self::$setupDir;
+                    $default_layout = SystemDefaultLayout;
+                    $icon_dir = str_replace('\\', '/', self::$appLogoDIR);;
+                    $defaultfavicon = 'favicon.ico';
+                    $setupMessage = 'This app successfully installed';
+                    $setupFile = 'whole system';
+                    $setupTime = date("F d Y H:i:s");
+
+                    self::SetupAppRequiredTables(self::databaseFile(strtolower(DefaultAppName)), self::GetConfData('db_prefix'));
+                    if (self::SetupStatus() && self::$SetupStatus === 'website_info_not_exist') {
+                        self::ConfigWebApp(
+                            $app_name, $app_description, $app_company, $doc_root, $http_host_name, $http_host_add, $http_host_ip,
+                            $default_home, $default_layout, $icon_dir, $defaultfavicon
+                        );
+                        self::$db->query("INSERT INTO `" . self::GetConfData('db_prefix') . "trackSystemUpdate` VALUES (null, 'msu_root', '$setupMessage','$setupFile', '$setupTime');");
+                        header('location:' . self::$setupDir);
+                    } else {
+                        self::$errorMessage = 'Database configuration failed. This application\'s required data could not insert into table (web app). Please insert required data this table manually or upgrade database file & try again.';
+                    }
+                } catch (Exception $e) {
+                    self::$errorMessage = $e->getMessage();
+                }
+            }
+        }
+    }
+
+    private static function ConfigWebUserQuery($email, $password, $username, $activity, $role, $status, $dob, $gender)
+    {
+        $db_prefix = self::GetConfData('db_prefix');
+        $random = rand(00000, 123456789);
+        if (self::db()) {
+            self::$db->query("INSERT INTO `" . $db_prefix . "users` VALUES (null, null, null, '$email', '$password', '$username', '$activity', '$role', '$status', now(), '$random');");
+            self::$db->query("INSERT INTO `" . $db_prefix . "users_details` VALUES (null, '$dob', '$gender', null, null);");
+        }
+    }
+
+    private static function ConfigWebApp($name, $description, $company, $doc_root, $http_host_name, $http_host_add, $http_host_ip, $default_home, $default_layout, $icon_dir, $favicon)
+    {
+        $db_prefix = self::GetConfData('db_prefix');
+        if (self::db()) {
+            self::$db->query("INSERT INTO `" . $db_prefix . WebAppConfigTable . "` VALUES (null, '$name', '$description', '$company', '$doc_root', '$http_host_name', '$http_host_add', '$http_host_ip', '$default_home', '$default_layout', '$icon_dir', '$favicon');");
+        }
+    }
+
+    private static function SetupAppRequiredTables($db_file, $db_prefix)
+    {
+        if (self::db()) {
+            Modules::config(self::$db, mb_strtolower($db_file), $db_prefix);
+        }
+    }
+
+    /*
+     * Advance idea under constructed
+     * After testing it will be best method for application installer
+     */
+
+    private static function DropPreviousTables($database)
+    {
+        if (self::db()) {
+            $result = self::$db->query("SHOW TABLES FROM `" . $database . "`");
+            $data = $result->fetchAll(PDO::FETCH_COLUMN);
+
+            if ($data) {
+                $tables = implode(", ", $data);
+                $drop = self::$db->query("DROP TABLE " . $tables . ";");
+                return $drop;
+            }
+        }
+    }
+
+    private static function DeleteTableData(array $table)
+    {
+        if (is_array($table) && count($table)) {
+            for ($i = 0; $i < count($table); $i++) {
+                $data[] = $table[$i];
+            }
+
+            $tables = implode(", ", $data);
+
+            if (self::db()) {
+                $delete = self::$db->query("DELETE FROM " . $tables . ";");
+                return $delete;
+            }
+        } else {
+            throw new Exception('Tables name not found.');
+            //header('location:' . BASE_URL . 'error/setup/404');
+        }
+    }
+
+    private static function Step()
+    {
+        if (isset(self::$SetupStatus)) {
+            if (self::$SetupStatus === "config_dir_not_exist") {
+                return self::AppStep("Installer", "database");
+            }
+
+            if (self::$SetupStatus === "config_file_not_exist") {
+                return self::AppErrorSET("Error", "<div class='setup-error'> The application is fetched with following errors. <br/>" .
+                    "<ol> <li> Configuration file not exist or deleted. </li>" .
+                    "<li> This application not configurated with your using domian (" . $_SERVER['SERVER_NAME'] . "). </li> </ol></div>");
+            }
+
+            if (self::$SetupStatus === "website_info_not_exist") {
+                return self::AppStep("Installer", "website");
+            }
+
+            if (self::$SetupStatus === "user_info_not_exist") {
+                return self::AppStep("Installer", "account");
+            }
+        } else {
+            return self::AppErrorSET("Error", "The application is unable to start correctly.");
+        }
+    }
+
+    private static function AppStep($title, $step)
+    {
+        if (!empty(isset($title))) {
+            self::$StepTitle = $title;
+        }
+
+        if (!empty(isset($step))) {
+            self::$Step = $step;
+        }
+
+        return self::$StepTitle && self::$Step;
+    }
+}

@@ -1,0 +1,92 @@
+<div id="appHeader">
+    <?php if (Session::get('auth')):
+        if (isset($menu) && sizeof($menu) > 0): ?>
+            <div class="topnav" id="myTopnav">
+                <?php foreach ($menu as $item):
+                    $class = '';
+                    if (View::getViewId() && $item['id'] === View::getViewId()) {
+                        $class = 'active';
+                    } ?>
+                    <a href="<?php echo BaseURL . $item['url'] ?>" class="<?php echo $class ?>">
+                        <i class="<?php echo $item['icon'] ?>"></i>
+                        <?php echo $item['title'] ?>
+                    </a>
+                <?php endforeach; ?>
+
+                <div class="float-right">
+                    <div class="topnav">
+                        <a href="#"><i class="fab fa-facebook-messenger"></i> </a>
+                        <a href="#"><i class="fas fa-bell"></i> </a>
+
+                        <div class="nav-dropdown">
+                            <button class="nav-dropbtn">
+                                <i class="far fa-user"></i>
+                                &nbsp;
+                                <?php if (empty(Session::get('f_name'))) {
+                                    echo ucfirst(preg_replace('/' . AppUsernamePrefix .
+                                        '/is', '$1', Session::get('username')));
+                                } else {
+                                    echo Session::get('f_name');
+                                } ?>
+                                &nbsp;
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="nav-dropdown-content">
+                                <!--a href="<?php echo BaseURL; ?>user">
+                                <i class="fas fa-home"></i> My home
+                            </a-->
+                                <a href="<?php echo BaseURL; ?>appmanager">
+                                    <i class="fas fa-cog"></i> Setting
+                                </a>
+
+                                <a href="<?php echo BaseURL; ?>user/logout">
+                                    <i class="fas fa-sign-out-alt"></i> Logout
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <a href="javascript:void(0);" class="icon" onclick="openTopNAV()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+
+        <?php endif; ?>
+    <?php endif; ?>
+
+    <?php
+    if (isset($siteInfo) && sizeof($siteInfo) > 0):
+        foreach ($siteInfo as $si):
+            $var = $si['icon_dir'] . $si['favicon']; ?>
+            <header>
+                <div class="row">
+                    <a href="<?php echo $si['default_home']; ?>" class="clearfix">
+                        <div id="topbar" class="topbar">
+                            <div class="logo">
+                                <img src="<?php if (file_exists($var)) {
+                                    echo $var;
+                                } else {
+                                    echo $si['icon_dir'] . "logo.png";
+                                } ?>"
+                                     class="logo" alt="<?php echo $si['name']; ?>">
+                            </div>
+
+
+                            <div class="titlebar">&nbsp;<?php echo $si['name']; ?></div>
+                            <!--<div class="subTitle float-right"><?php /*echo $subTitle; */
+                            ?></div>-->
+                            <div class="subTitle float-right">
+                                Branch: Matikata<br/>
+                                <small style="font-size:14px;"><span id="ct"></span></small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </header>
+        <?php endforeach;
+    endif;
+    ?>
+
+</div>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="8b9ad81e-9c94-42ea-b3a9-d1817a163bc5" name="tcc" url="http://tcc.mishusoft.com">
+        <fileTransfer host="www.mishusoft.com" port="21" rootFolder="/public_html/releases/tcms/en">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

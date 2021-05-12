@@ -1,0 +1,213 @@
+<?php
+
+/*
+ * Tracker::event(array(
+ *                  'activity' => array(
+ *                          'messageType' => 'success',
+ *                          'message' => 'Navigated successfully'
+ *                  ),
+ *                  'update' => array(
+ *                          'messageType' => 'success',
+ *                          'uFile' => 'index.php',
+ *                          'message' => 'updated successfully'
+ *                   )
+ *          ));
+ * */
+
+class Tracker {
+
+    private static $init;
+    private static $activity;
+    private static $database;
+    private static $lastUpdateDataId;
+    private static $TotalView;
+
+    public static function init(){
+        if (!self::$init instanceof self) {
+            self::$init = new Tracker();
+        }
+        try {
+            self::$database = new Database(DbHOST, DbNAME, DbUSER, DbPASS, DbCHAR);
+            self::$database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            print "Error: " . $e->getMessage() . "<br/>";
+            die();
+        }
+        self::$activity = array();
+        self::$lastUpdateDataId = '';
+        self::$TotalView = 0;
+        self::countVisitorsAllHits();
+        self::visit(Visitor::IP());
+
+        return self::$init;
+    }
+
+    public static function addEvent($event){
+        self::$activity = $event;
+        self::track();
+    }
+
+    private static function track(){
+        if (is_array(self::$activity) && self::$activity !==[]){
+            if (isset(self::$activity['activity'])){
+                self::trackActivity();
+            }
+            if(isset(self::$activity['update'])){
+                self::trackSystemUpdate();
+            }
+        } else { self::trackingError();}
+    }
+
+    private static function prepare($sql) {
+        try {
+            if (self::$database) {
+                return self::$database->prepare($sql);
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    private static function query($sql) {
+        try {
+            if (self::$database) {
+                return self::$database->query($sql);
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    private static function getAuthor(){
+        $author = '';
+        if(Session::get('auth')){
+            if(Session::get('f_name') || Session::get('f_name') && Session::get('l_name')){
+                $author = Session::get('f_name') . ' ' . Session::get('l_name');
+            }
+            elseif(Session::get('Author')){ $author = Session::get('Author'); }
+            else { $author = Visitor::IP(); }
+        } else{ $author = 'Visitor'; }
+        return $author;
+    }
+
+    private static function getActivityStatus(){
+        $status = '';
+        if(Visitor::VisitedPage() && Visitor::VisitedPage() !== '') {
+            $status = 'visited';
+        } else { $status = 'not visited';}
+
+        return $status;
+    }
+
+    private static function trackActivity() {
+        $activity = array(
+            'activity' => array(
+                'author' => self::getAuthor(),
+                'IP' => Visitor::IP(),
+                'Country' => Visitor::Country(),
+                'Location' => Visitor::Info(Visitor::IP(), "Address"),
+                'OS' => Visitor::OS(),
+                'Browser' => Visitor::Browser(),
+                'status' => self::getActivityStatus(),
+                'messageType' => self::$activity['activity']['messageType'],
+                'message' => self::$activity['activity']['message'],
+                'VisitedPage' => Visitor::VisitedPage(),
+                'VisitedPageTitle' => '', //Visitor::VisitedPageTitle(),
+                'VisitedTime' => date ("F d Y H:i:s")
+            )
+        ) ;
+
+        self::$activity = array_merge(self::$activity, $activity);
+
+        if(!isset(self::$activity['activity']['status'])) { self::$activity['activity']['status']= 'An error here. Please fix it.';}
+        if(!isset(self::$activity['activity']['messageType'])) { self::$activity['activity']['messageType']= 'Method not exist here.';}
+        if(!isset(self::$activity['activity']['message'])) { self::$activity['activity']['message']= 'No activity data found here. Method not exist here. Please fix it now.';}
+
+        self::$database->prepare("INSERT INTO " . DbPREFIX . "trackActivities VALUES (null, :vAuthor, :vIP, :vCountry, :vLocation, :vOS, :vBrowser, :vStatus, :vMessageType, :vMessage, :vPage, :vPageTitle, :vTime, 0)")
+            ->execute(
+                array(
+                    ':vAuthor' => self::$activity['activity']['author'],
+                    ':vIP' => self::$activity['activity']['IP'],
+                    ':vCountry' => self::$activity['activity']['Country'],
+                    ':vLocation' => self::$activity['activity']['Location'],
+                    ':vOS' => self::$activity['activity']['OS'],
+                    ':vBrowser' => self::$activity['activity']['Browser'],
+                    ':vStatus' => self::$activity['activity']['status'],
+                    ':vMessageType' => self::$activity['activity']['messageType'],
+                    ':vMessage' => self::$activity['activity']['message'],
+                    ':vPage' => self::$activity['activity']['VisitedPage'],
+                    ':vPageTitle' => self::$activity['activity']['VisitedPageTitle'],
+                    ':vTime' => self::$activity['activity']['VisitedTime']
+                ));
+    }
+
+    private static function trackSystemUpdate(){
+        self::$database->prepare('INSERT INTO `'. DbPREFIX.'trackSystemUpdate` VALUES (null, :uAuthor, :uMessage, :uFile, :uTime);')
+            ->execute(array(
+                    ':uAuthor' => self::getAuthor(),
+                    ':uMessage' => self::$activity['update']['message'],
+                    ':uFile' => self::$activity['update']['uFile'],
+                    ':uTime' => date ("F d Y H:i:s")
+                )
+            );
+
+        return self::$lastUpdateDataId = self::$database->lastInsertId();
+    }
+
+    private static function trackingError(){
+        echo 'No track information found on system.';
+    }
+
+    public static function getTotalHits(){
+        $rows1 = self::query("SELECT SUM(vTotalHits) AS TotalHits FROM `" . DbPREFIX . "trackVisitors` ");
+        $row = $rows1->fetch(PDO::FETCH_ASSOC);
+        return $row["TotalHits"];
+    }
+
+    public static function getTotalVisitor(){
+        $unique = self::query("SELECT `vIP` FROM `" . DbPREFIX . "trackVisitors`");
+        return $unique->rowcount();
+    }
+
+    public static function getMyHits(){
+        $visitor = Visitor::IP();
+        $currentPage = Visitor::VisitedPage();
+        $myHits = self::query("SELECT `page` FROM `" . DbPREFIX . "trackActivities` WHERE `ip` = '$visitor' AND `page` = '$currentPage'");
+        return $myHits->rowCount();
+    }
+
+    private static function countVisitorsAllHits(){
+        $results = self::query("SELECT * FROM `" . DbPREFIX . "trackVisitors`");
+        if ($results->rowcount() == 0) {
+
+            self::$TotalView = 0;
+            $vIP = Visitor::IP();
+
+            $stmt = self::prepare("INSERT INTO `" . DbPREFIX . "trackVisitors` VALUES (:vIP, :vTotalHits)");
+            $stmt->bindParam(':vIP', $vIP);
+            $stmt->bindParam(':vTotalHits', self::$TotalView);
+            $stmt->execute();
+        }
+    }
+
+    private static function isNewVisitor($visitor){
+        $id = self::query("SELECT `vIP` FROM `" . DbPREFIX . "trackVisitors` WHERE `vIP` = '$visitor'");
+
+        if ($id->fetch()) {
+            return FALSE;
+        }
+
+        return TRUE;
+    }
+
+    private static function visit($visitor){
+        self::query("UPDATE `" . DbPREFIX . "trackVisitors` SET `vTotalHits` = `vTotalHits` + 1 WHERE `vIP` = '$visitor'");
+
+        if (self::isNewVisitor($visitor)) {
+            $stmt = self::prepare("INSERT INTO `" . DbPREFIX . "trackVisitors`(`vIP`) VALUES (:vIP)");
+            $ip = Visitor::IP();
+            $stmt->bindParam(':vIP', $ip);
+            $stmt->execute();
+        }
+    }
+}

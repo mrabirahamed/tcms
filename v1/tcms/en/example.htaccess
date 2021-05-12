@@ -1,0 +1,18 @@
+#allow to overwrite
+#Options Indexes +FollowSymLinks -MultiViews
+#AllowOverride all
+#Order allow,deny
+#allow from all
+#Require all granted
+
+
+#RewriteEngine turn on
+RewriteEngine On
+
+#Rewrite Conditions set
+RewriteCond  %{REQUEST_FILENAME} !-d
+RewriteCond  %{REQUEST_FILENAME} !-f
+RewriteCond  %{REQUEST_FILENAME} !-l
+
+#Rewrite Rules set
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]

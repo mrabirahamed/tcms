@@ -1,0 +1,5 @@
+
+RewriteEngine on
+
+RewriteOptions inherit
+AddType application/ms-database msd

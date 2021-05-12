@@ -1,0 +1,140 @@
+<?php
+
+/*
+ * + ---------------------------------------------------------- +
+ * |  Software:	Pagination - class PHP pager register           |
+ * |   Version:	2.1.0                                           |
+ * |  Licence:	Library file distributor                        |
+ * |   Author:	Mr Abir Ahamed                                  |
+ * | Site Web:	http://mishu.bytehost3.com                      |
+ * + ---------------------------------------------------------- +
+ *
+ */
+
+class Pagination
+{
+
+    private $datas;
+    private $pagination;
+
+    public function __construct(){
+        $this->datas = array();
+        $this->pagination = array();
+    }
+
+    public function pager($query, $page = FALSE, $limit = FALSE, $pagination = FALSE){
+        if ($limit && is_numeric($limit)) {
+            $limit = $limit;
+        } else {
+            $limit = 10;
+        }
+
+        if ($page && is_numeric($page)) {
+            $page = $page;
+            $offset = ($page - 1) * $limit;
+        } else {
+            $page = 1;
+            $offset = 0;
+        }
+
+
+        $datas = count($query);
+        $total = ceil($datas / $limit);
+        $this->datas = array_slice($query, $offset, $limit);
+
+        $pagination = array();
+        $pagination['current'] = $page;
+        $pagination['total'] = $total;
+        $pagination['limit'] = $limit;
+
+        if ($page > 1) {
+            $pagination['first'] = 1;
+            $pagination['previous'] = $page - 1;
+        } else {
+            $pagination['first'] = '';
+            $pagination['previous'] = '';
+        }
+
+        if ($page < $total) {
+            $pagination['last'] = $total;
+            $pagination['next'] = $page + 1;
+        } else {
+            $pagination['last'] = '';
+            $pagination['next'] = '';
+        }
+
+        $this->pagination = $pagination;
+        $this->rangePagination($pagination);
+
+        return $this->datas;
+    }
+
+    private function rangePagination($limit = FALSE){
+        if ($limit && is_numeric($limit)) {
+            $limit = $limit;
+        } else {
+            $limit = 10;
+        }
+
+        $total_pages = $this->pagination['total'];
+        $selected_page = $this->pagination['current'];
+        $range = ceil($limit / 2);
+        $pages = array();
+
+        $next_pages = $total_pages - $selected_page;
+
+        if ($next_pages < $range) {
+            $resto = $range - $next_pages; //here use spanish languange
+        } else {
+            $resto = 0; //here use spanish languange
+        }
+
+        $rango_izquierdo = $selected_page - ($range + $resto); //here use spanish languange
+
+        for ($i = $selected_page; $i > $rango_izquierdo; $i--) { //here use spanish languange
+            if ($i == 0) {
+                break;
+            }
+
+            $pages[] = $i;
+        }
+
+        sort($pages);
+
+        if ($selected_page < $range) {
+            $next_pages = $limit;
+        } else {
+            $next_pages = $selected_page + $range;
+        }
+
+        for ($i = $selected_page + 1; $i <= $next_pages; $i++) {
+            if ($i > $total_pages) {
+                break;
+            }
+
+            $pages[] = $i;
+        }
+
+        $this->pagination['range'] = $pages;
+        return $this->pagination;
+    }
+
+    public function getView($view, $link = FALSE){
+        $rootView = ModulesDIR . CoreApp . DS . 'views' . DS . 'pagination' . DS . $view . '.php';
+
+        if ($link) {
+            $link = BaseURL . $link . '/';
+        }
+
+        if (is_readable($rootView)) {
+            ob_start();
+            include $rootView;
+            $content = ob_get_contents();
+            ob_end_clean();
+            return $content;
+        }
+
+        throw new Exception('Pagination\'s views content not found or Pagination loading error.');
+        //header('location:' . BaseURL . 'error/access/404');
+    }
+}

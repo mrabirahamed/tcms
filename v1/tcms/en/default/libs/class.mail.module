@@ -1,0 +1,72 @@
+<?php
+
+
+/*
+ * + ---------------------------------------------------------- +
+ * |  Software:	Mail - class PHP mail register                  |
+ * |   Version:	2.1.0                                           |
+ * |  Licence:	Library file distributor                        |
+ * |   Author:	Mr Abir Ahamed                                  |
+ * | Site Web:	http://mishu.bytehost3.com                      |
+ * + ---------------------------------------------------------- +
+ *
+ */
+
+
+// Import PHPMailer classes into the global namespace
+// These must be at the top of your script, not inside a function
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\OAuth;
+use PHPMailer\PHPMailer\POP3;
+use PHPMailer\PHPMailer\SMTP;
+
+include_once LibraryDIR . 'thirdparty' . DS . 'phpmailer' . DS. 'class.phpmailer.module';
+include_once LibraryDIR . 'thirdparty' . DS . 'phpmailer' . DS. 'class.exception.module';
+include_once LibraryDIR . 'thirdparty' . DS . 'phpmailer' . DS. 'class.smtp.module';
+include_once LibraryDIR . 'thirdparty' . DS . 'phpmailer' . DS. 'class.pop3.module';
+include_once LibraryDIR . 'thirdparty' . DS . 'phpmailer' . DS. 'class.oauth.module';
+
+class Mail {
+
+  public static function send($data){
+
+    $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
+    try {
+      //Server settings
+      //$mail->SMTPDebug = 2;                                 // Enable verbose debug output
+      $mail->isSMTP();                                      // Set mailer to use SMTP
+      $mail->Host = 'smtp.gmail.com';                       // Specify main and backup SMTP servers
+      $mail->SMTPAuth = true;                               // Enable SMTP authentication
+      $mail->Username = 'mrabir.ahamed@gmail.com';          // SMTP username
+      $mail->Password = 'Ap17011996';                           // SMTP password
+      $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+      $mail->Port = 587;                                    // TCP port to connect to
+
+      //Recipients
+      $mail->setFrom($data['sender']['email'], $data['sender']['name']);
+      $mail->addAddress($data['receiver']['email'], $data['receiver']['name']);     // Add a recipient
+      //$mail->addAddress('ellen@example.com');               // Name is optional
+      $mail->addReplyTo($data['replyTo']['email'],  $data['replyTo']['name']);
+      $mail->addCC($data['cc']['email'],  $data['cc']['name']);
+      $mail->addBCC($data['bcc']['email'],  $data['bcc']['name']);
+
+
+      //Attachments
+      if(file_exists($data['attachments']['url'])){
+        //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+        $mail->addAttachment($data['attachments']['url'],  $data['attachments']['name']);    // Optional name
+      }
+
+      //Content
+      $mail->isHTML(true);                                  // Set email format to HTML
+      $mail->Subject = $data['subject'];
+      $mail->Body    = $data['body'];
+      $mail->AltBody = $data['altbody'];
+
+      $mail->send();
+    } catch (Exception $e) {
+      echo 'Mail could not be sent. Mailer Error: ', $mail->ErrorInfo;
+    }
+  }
+}

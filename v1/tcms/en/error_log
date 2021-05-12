@@ -1,0 +1,736 @@
+[16-Feb-2019 13:42:54 Asia/Dacca] PHP Fatal error:  Uncaught Error: Class 'System' not found in /home/mishusoft/public_html/project/tcms/main/Configs.php:109
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/main/Configs.php(101): Configuration::connection()
+#1 /home/mishusoft/public_html/project/tcms/main/Configs.php(43): Configuration::init()
+#2 /home/mishusoft/public_html/project/tcms/index.php(14): require_once('/home/mishusoft...')
+#3 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/main/Configs.php on line 109
+[16-Feb-2019 13:44:20 Asia/Dacca] PHP Fatal error:  Uncaught Error: Class 'System' not found in /home/mishusoft/public_html/project/tcms/main/Configs.php:109
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/main/Configs.php(101): Configuration::connection()
+#1 /home/mishusoft/public_html/project/tcms/main/Configs.php(43): Configuration::init()
+#2 /home/mishusoft/public_html/project/tcms/index.php(14): require_once('/home/mishusoft...')
+#3 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/main/Configs.php on line 109
+[16-Feb-2019 17:05:53 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/index.php(27): Tracker::addEvent(Array)
+#3 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[16-Feb-2019 17:05:59 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/index.php(27): Tracker::addEvent(Array)
+#3 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[16-Feb-2019 17:07:50 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/index.php(27): Tracker::addEvent(Array)
+#3 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[16-Feb-2019 17:13:28 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/index.php(29): Tracker::addEvent(Array)
+#3 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[16-Feb-2019 17:14:02 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/index.php(29): Tracker::addEvent(Array)
+#3 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[16-Feb-2019 17:14:33 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/index.php(29): Tracker::addEvent(Array)
+#3 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[16-Feb-2019 17:14:37 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/index.php(29): Tracker::addEvent(Array)
+#3 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[16-Feb-2019 17:17:38 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/index.php(27): Tracker::addEvent(Array)
+#3 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[16-Feb-2019 17:18:32 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/index.php(27): Tracker::addEvent(Array)
+#3 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[16-Feb-2019 17:18:36 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/index.php(27): Tracker::addEvent(Array)
+#3 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[16-Feb-2019 17:18:51 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/index.php(27): Tracker::addEvent(Array)
+#3 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[16-Feb-2019 17:18:56 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/index.php(27): Tracker::addEvent(Array)
+#3 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[16-Feb-2019 17:22:37 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/index.php(27): Tracker::addEvent(Array)
+#3 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[16-Feb-2019 17:23:24 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/index.php(27): Tracker::addEvent(Array)
+#3 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[16-Feb-2019 17:31:24 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/itemsController.php(170): Tracker::addEvent(Array)
+#3 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): itemsController->ChangeProductAbility()
+#4 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#5 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[16-Feb-2019 17:31:50 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/itemsController.php(170): Tracker::addEvent(Array)
+#3 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): itemsController->ChangeProductAbility()
+#4 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#5 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[16-Feb-2019 17:36:14 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/itemsController.php(170): Tracker::addEvent(Array)
+#3 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): itemsController->ChangeProductAbility()
+#4 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#5 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[16-Feb-2019 17:38:24 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function execute() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:127
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/itemsController.php(170): Tracker::addEvent(Array)
+#3 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): itemsController->ChangeProductAbility()
+#4 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#5 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 127
+[16-Feb-2019 17:43:58 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/itemsController.php(170): Tracker::addEvent(Array)
+#3 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): itemsController->ChangeProductAbility()
+#4 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#5 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[16-Feb-2019 17:59:26 Asia/Dacca] PHP Parse error:  syntax error, unexpected 'self' (T_STRING), expecting ',' or ')' in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[16-Feb-2019 18:00:41 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/itemsController.php(170): Tracker::addEvent(Array)
+#3 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): itemsController->ChangeProductAbility()
+#4 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#5 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[16-Feb-2019 18:03:20 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:146
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(56): Tracker::trackSystemUpdate()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/itemsController.php(170): Tracker::addEvent(Array)
+#3 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): itemsController->ChangeProductAbility()
+#4 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#5 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 146
+[16-Feb-2019 18:05:33 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function lastInsertId() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:157
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(56): Tracker::trackSystemUpdate()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/itemsController.php(170): Tracker::addEvent(Array)
+#3 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): itemsController->ChangeProductAbility()
+#4 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#5 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 157
+[16-Feb-2019 18:06:32 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function lastInsertId() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:157
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(56): Tracker::trackSystemUpdate()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/itemsController.php(170): Tracker::addEvent(Array)
+#3 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): itemsController->ChangeProductAbility()
+#4 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#5 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 157
+[17-Feb-2019 11:19:23 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Session.php(145): Tracker::addEvent(Array)
+#3 /home/mishusoft/public_html/project/tcms/default/drivers/Acl.php(148): Session::sessionTime()
+#4 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(19): Acl->access('system_access')
+#5 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->index()
+#6 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#7 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[17-Feb-2019 11:20:44 Asia/Dacca] PHP Warning:  file(/home/mishusoft/public_html/project/tcms/default/libs/data/db/mishusoft.sql): failed to open stream: No such file or directory in /home/mishusoft/public_html/project/tcms/default/drivers/Modules.php on line 130
+[17-Feb-2019 11:20:44 Asia/Dacca] PHP Warning:  Invalid argument supplied for foreach() in /home/mishusoft/public_html/project/tcms/default/drivers/Modules.php on line 132
+[17-Feb-2019 11:20:44 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/index.php(27): Tracker::addEvent(Array)
+#3 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[17-Feb-2019 11:21:45 Asia/Dacca] PHP Warning:  file(/home/mishusoft/public_html/project/tcms/default/libs/data/db/mishusoft.sql): failed to open stream: No such file or directory in /home/mishusoft/public_html/project/tcms/default/drivers/Modules.php on line 130
+[17-Feb-2019 11:21:45 Asia/Dacca] PHP Warning:  Invalid argument supplied for foreach() in /home/mishusoft/public_html/project/tcms/default/drivers/Modules.php on line 132
+[17-Feb-2019 11:21:45 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/index.php(27): Tracker::addEvent(Array)
+#3 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[17-Feb-2019 11:22:36 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/index.php(27): Tracker::addEvent(Array)
+#3 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[17-Feb-2019 11:22:41 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/index.php(27): Tracker::addEvent(Array)
+#3 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[17-Feb-2019 11:23:00 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/clientsController.php(132): Tracker::addEvent(Array)
+#3 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): clientsController->addClients()
+#4 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#5 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[18-Feb-2019 13:39:18 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/itemsController.php(63): Tracker::addEvent(Array)
+#3 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): itemsController->checkItemNameAbility()
+#4 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#5 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[18-Feb-2019 13:39:19 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/itemsController.php(63): Tracker::addEvent(Array)
+#3 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): itemsController->checkItemNameAbility()
+#4 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#5 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[18-Feb-2019 13:39:20 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/itemsController.php(63): Tracker::addEvent(Array)
+#3 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): itemsController->checkItemNameAbility()
+#4 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#5 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[18-Feb-2019 13:41:26 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/itemsController.php(63): Tracker::addEvent(Array)
+#3 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): itemsController->checkItemNameAbility()
+#4 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#5 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[18-Feb-2019 13:41:27 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/itemsController.php(63): Tracker::addEvent(Array)
+#3 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): itemsController->checkItemNameAbility()
+#4 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#5 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[18-Feb-2019 13:42:24 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/itemsController.php(63): Tracker::addEvent(Array)
+#3 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): itemsController->checkItemNameAbility()
+#4 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#5 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 126
+[18-Feb-2019 16:30:05 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:249
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(132): invoicesModel->getSoldItemsByInvId(3)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 249
+[18-Feb-2019 16:30:18 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:99
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(131): invoicesModel->getSalesManUserIdByInvoiceId(NULL)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 99
+[18-Feb-2019 16:31:00 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:249
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(132): invoicesModel->getSoldItemsByInvId(8)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 249
+[18-Feb-2019 16:31:00 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:249
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(132): invoicesModel->getSoldItemsByInvId(10)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 249
+[18-Feb-2019 16:31:01 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:99
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(131): invoicesModel->getSalesManUserIdByInvoiceId(NULL)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 99
+[18-Feb-2019 16:32:19 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:249
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(132): invoicesModel->getSoldItemsByInvId(10)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 249
+[18-Feb-2019 16:32:27 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:108
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(131): invoicesModel->getSalesManActualNameById(2)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 108
+[18-Feb-2019 16:32:36 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:108
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(131): invoicesModel->getSalesManActualNameById(2)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 108
+[18-Feb-2019 16:32:51 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:249
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(132): invoicesModel->getSoldItemsByInvId(8)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 249
+[18-Feb-2019 16:33:09 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:78
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(261): invoicesModel->getBrandNameById(1)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(132): invoicesModel->getSoldItemsByInvId(8)
+#2 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#4 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#5 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 78
+[18-Feb-2019 16:34:05 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:108
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(131): invoicesModel->getSalesManActualNameById(2)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 108
+[18-Feb-2019 16:34:06 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:108
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(131): invoicesModel->getSalesManActualNameById(2)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 108
+[18-Feb-2019 16:34:06 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:120
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#1 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#3 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 120
+[18-Feb-2019 16:34:07 Asia/Dacca] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1615 Prepared statement needs to be re-prepared in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:140
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(140): PDOStatement->execute(Array)
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#2 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(47): Tracker::track()
+#3 /home/mishusoft/public_html/project/tcms/index.php(27): Tracker::addEvent(Array)
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 140
+[18-Feb-2019 16:34:29 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:249
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(132): invoicesModel->getSoldItemsByInvId(4)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 249
+[18-Feb-2019 16:35:01 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:108
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(131): invoicesModel->getSalesManActualNameById(2)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 108
+[18-Feb-2019 19:42:13 Asia/Dacca] PHP Parse error:  syntax error, unexpected 's' (T_STRING), expecting ']' in /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php on line 39
+[18-Feb-2019 20:05:29 Asia/Dacca] PHP Parse error:  syntax error, unexpected 's' (T_STRING), expecting ']' in /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php on line 39
+[18-Feb-2019 20:07:11 Asia/Dacca] PHP Parse error:  syntax error, unexpected 's' (T_STRING), expecting ']' in /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php on line 39
+[18-Feb-2019 20:07:51 Asia/Dacca] PHP Parse error:  syntax error, unexpected 's' (T_STRING), expecting ']' in /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php on line 39
+[18-Feb-2019 20:08:28 Asia/Dacca] PHP Parse error:  syntax error, unexpected 's' (T_STRING), expecting ']' in /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php on line 39
+[18-Feb-2019 20:10:21 Asia/Dacca] PHP Parse error:  syntax error, unexpected 's' (T_STRING), expecting ']' in /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php on line 39
+[18-Feb-2019 20:10:36 Asia/Dacca] PHP Parse error:  syntax error, unexpected 's' (T_STRING), expecting ']' in /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php on line 39
+[18-Feb-2019 20:30:39 Asia/Dacca] PHP Parse error:  syntax error, unexpected 's' (T_STRING), expecting ']' in /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php on line 38
+[18-Feb-2019 20:51:57 Asia/Dacca] PHP Parse error:  syntax error, unexpected 's' (T_STRING), expecting ']' in /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php on line 38
+[19-Feb-2019 12:30:05 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:99
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(131): invoicesModel->getSalesManUserIdByInvoiceId(NULL)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 99
+[19-Feb-2019 12:30:10 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:249
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(132): invoicesModel->getSoldItemsByInvId(2)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 249
+[19-Feb-2019 12:30:17 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:108
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(131): invoicesModel->getSalesManActualNameById(2)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 108
+[19-Feb-2019 12:30:18 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:70
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(259): invoicesModel->getItemNameById(3)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(132): invoicesModel->getSoldItemsByInvId(11)
+#2 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#4 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#5 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 70
+[19-Feb-2019 12:30:23 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:120
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#1 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#3 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 120
+[19-Feb-2019 12:30:33 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:249
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(132): invoicesModel->getSoldItemsByInvId(5)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 249
+[19-Feb-2019 12:30:33 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:143
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(278): invoicesModel->getInvoiceDetailsById(2)
+#1 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->doprint('2')
+#2 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#3 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 143
+[19-Feb-2019 12:30:33 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:99
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(131): invoicesModel->getSalesManUserIdByInvoiceId(NULL)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 99
+[19-Feb-2019 12:30:34 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module:196
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(206): Tracker::isNewVisitor('103.229.80.203')
+#1 /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module(40): Tracker::visit('103.229.80.203')
+#2 /home/mishusoft/public_html/project/tcms/index.php(17): Tracker::init()
+#3 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/libs/class.tracker.module on line 196
+[19-Feb-2019 12:30:35 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:249
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(132): invoicesModel->getSoldItemsByInvId(8)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 249
+[19-Feb-2019 12:30:49 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:108
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(131): invoicesModel->getSalesManActualNameById(2)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 108
+[19-Feb-2019 12:30:51 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:249
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(132): invoicesModel->getSoldItemsByInvId(3)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 249
+[19-Feb-2019 12:30:55 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/drivers/Setting.php:24
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/main/Configs.php(58): Setting::siteName()
+#1 /home/mishusoft/public_html/project/tcms/index.php(14): require_once('/home/mishusoft...')
+#2 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/drivers/Setting.php on line 24
+[19-Feb-2019 12:30:56 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:78
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(261): invoicesModel->getBrandNameById(1)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(132): invoicesModel->getSoldItemsByInvId(8)
+#2 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#4 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#5 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 78
+[19-Feb-2019 12:30:56 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:99
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(131): invoicesModel->getSalesManUserIdByInvoiceId(NULL)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 99
+[19-Feb-2019 12:31:10 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:70
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(259): invoicesModel->getItemNameById(2)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(132): invoicesModel->getSoldItemsByInvId(13)
+#2 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#4 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#5 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 70
+[19-Feb-2019 12:31:55 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:99
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(131): invoicesModel->getSalesManUserIdByInvoiceId(NULL)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 99
+[19-Feb-2019 12:32:53 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:78
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(261): invoicesModel->getBrandNameById(3)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(132): invoicesModel->getSoldItemsByInvId(12)
+#2 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#4 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#5 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 78
+[19-Feb-2019 12:32:53 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:99
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(131): invoicesModel->getSalesManUserIdByInvoiceId(NULL)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 99
+[19-Feb-2019 12:33:27 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:99
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(131): invoicesModel->getSalesManUserIdByInvoiceId(NULL)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 99
+[19-Feb-2019 12:33:31 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:249
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(132): invoicesModel->getSoldItemsByInvId(12)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 249
+[19-Feb-2019 12:33:39 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:249
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(132): invoicesModel->getSoldItemsByInvId(10)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 249
+[19-Feb-2019 12:33:48 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:249
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(132): invoicesModel->getSoldItemsByInvId(8)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 249
+[19-Feb-2019 12:33:50 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:99
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(131): invoicesModel->getSalesManUserIdByInvoiceId(NULL)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 99
+[19-Feb-2019 12:34:02 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:99
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(131): invoicesModel->getSalesManUserIdByInvoiceId(NULL)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 99
+[19-Feb-2019 12:34:51 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:70
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(259): invoicesModel->getItemNameById(3)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(132): invoicesModel->getSoldItemsByInvId(11)
+#2 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#4 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#5 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 70
+[19-Feb-2019 12:34:57 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:249
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(132): invoicesModel->getSoldItemsByInvId(9)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 249
+[19-Feb-2019 12:34:57 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:249
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(132): invoicesModel->getSoldItemsByInvId(8)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 249
+[19-Feb-2019 12:34:58 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/drivers/Setting.php:24
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/main/Configs.php(58): Setting::siteName()
+#1 /home/mishusoft/public_html/project/tcms/index.php(14): require_once('/home/mishusoft...')
+#2 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/drivers/Setting.php on line 24
+[19-Feb-2019 12:35:26 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:249
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(132): invoicesModel->getSoldItemsByInvId(4)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 249
+[19-Feb-2019 12:35:45 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:78
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(261): invoicesModel->getBrandNameById(1)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(132): invoicesModel->getSoldItemsByInvId(8)
+#2 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#4 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#5 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 78
+[19-Feb-2019 16:34:40 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:99
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(131): invoicesModel->getSalesManUserIdByInvoiceId(NULL)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 99
+[19-Feb-2019 16:34:40 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:108
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(131): invoicesModel->getSalesManActualNameById(2)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#2 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#4 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 108
+[19-Feb-2019 16:35:02 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php:70
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(336): invoicesModel->getItemNameById(1)
+#1 /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php(132): invoicesModel->getSoldItemsByInvId(15)
+#2 /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php(28): invoicesModel->getInvoicesAll()
+#3 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): invoicesController->getInvoicesAll()
+#4 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#5 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/models/invoicesModel.php on line 70
+[19-Feb-2019 18:28:04 Asia/Dacca] PHP Parse error:  syntax error, unexpected end of file in /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php on line 101
+[20-Feb-2019 16:45:12 Asia/Dacca] PHP Fatal error:  Uncaught Error: Call to undefined method productdetailsModel::getItem() in /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/productdetailsController.php:248
+Stack trace:
+#0 /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php(38): productdetailsController->ChangeProductAbility()
+#1 /home/mishusoft/public_html/project/tcms/index.php(24): Bootstrap::run(Object(Request))
+#2 {main}
+  thrown in /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/productdetailsController.php on line 248
+[20-Feb-2019 16:52:07 Asia/Dacca] PHP Parse error:  syntax error, unexpected end of file, expecting ']' in /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/productdetailsController.php on line 170
+[20-Feb-2019 16:54:24 Asia/Dacca] PHP Parse error:  syntax error, unexpected end of file, expecting ']' in /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/productdetailsController.php on line 170
+[21-Feb-2019 15:23:50 Asia/Dacca] PHP Warning:  Missing argument 1 for invoicesController::test2(), called in /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php on line 38 and defined in /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php on line 299
+[21-Feb-2019 15:23:53 Asia/Dacca] PHP Warning:  Missing argument 1 for invoicesController::test2(), called in /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php on line 38 and defined in /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php on line 299
+[21-Feb-2019 15:24:02 Asia/Dacca] PHP Warning:  Missing argument 1 for invoicesController::test2(), called in /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php on line 38 and defined in /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php on line 299
+[21-Feb-2019 15:24:12 Asia/Dacca] PHP Warning:  Missing argument 1 for invoicesController::test2(), called in /home/mishusoft/public_html/project/tcms/default/drivers/Bootstrap.php on line 38 and defined in /home/mishusoft/public_html/project/tcms/default/modules/core/controllers/invoicesController.php on line 299
+[28-Feb-2019 10:36:56 Asia/Almaty] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/releases/tcms/en/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/releases/tcms/en/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/releases/tcms/en/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/releases/tcms/en/index.php(27): Tracker::addEvent(Array)
+#3 {main}
+  thrown in /home/mishusoft/public_html/releases/tcms/en/default/libs/class.tracker.module on line 126
+[03-Mar-2019 10:09:46 Asia/Almaty] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/mishusoft/public_html/releases/tcms/en/default/libs/class.tracker.module:126
+Stack trace:
+#0 /home/mishusoft/public_html/releases/tcms/en/default/libs/class.tracker.module(53): Tracker::trackActivity()
+#1 /home/mishusoft/public_html/releases/tcms/en/default/libs/class.tracker.module(47): Tracker::track()
+#2 /home/mishusoft/public_html/releases/tcms/en/index.php(27): Tracker::addEvent(Array)
+#3 {main}
+  thrown in /home/mishusoft/public_html/releases/tcms/en/default/libs/class.tracker.module on line 126
